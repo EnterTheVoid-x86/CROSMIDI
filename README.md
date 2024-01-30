@@ -10,7 +10,7 @@ Y888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888
 # ChromeOS Multi-Image Deployment Interface
 
 ## What is it?
-To sum it up, it's like Ventoy for Chromebooks that have RMA Shims.
+ChromeOS Multi-Image Deployment Interface is a Ventoy-type program that allows you to boot multiple RMA shims with only one USB. 
 
 ## What can it do?
 Many things. Booting other modified RMA shims like TerraOS and SH1MMER (or stock shims), installing different ChromeOS recovery images without the need to reformat your USB every time, among other things.
