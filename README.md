@@ -22,7 +22,7 @@ Using a modified RMA Shim, you'll be presented with a menu to choose your action
 Anything with a publicly available RMA shim.
 
 ## Credits
-Archimax/EnterTheVoid-x86: Pioneering the creation of this tool (programming, naming, etc)
-Zeglol1234: Helping with stuff related to switch_root
-r58playz' TerraOS: Helped me figure out some stuff with running a bash script as PID 1
+Archimax/EnterTheVoid-x86: Pioneering the creation of this tool (programming, naming, etc)  
+Zeglol1234: Helping with stuff related to switch_root  
+r58playz' TerraOS: Helped me figure out some stuff with running a bash script as PID 1  
 0x90b1: Coming up with the idea
