@@ -1,12 +1,28 @@
 #!/bin/bash
 
+clear
+
 trap '' INT
 
-echo -e " e88~-_  888~-_     ,88~-_   ,d88~~\      e    e      888 888~-_   888\nd888   \ 888   \   d888   \  8888        d8b  d8b     888 888   \  888\n8888     888    | 88888    | \`Y88b      d888bdY88b    888 888    | 888\n8888     888   /  88888    |  \`Y88b,   / Y88Y Y888b   888 888    | 888\nY888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888\n \"88_-~  888 ~-_    \`88_-~   \__88P' /          Y888b 888 888_-~   888\n"
-echo "                                                                    or"
-echo "                                   ChromeOS Multi-Image Deployment Hub"
-echo "                                                                 v0.1a"
-echo " "
+set +x
+
+NOSCREENS=0
+MAIN_TTY="/dev/pts/0"
+DEBUG_TTY="/dev/pts/1"
+
+# sane i/o
+exec >>"${MAIN_TTY}" 2>&1
+exec <"${MAIN_TTY}"
+
+splash() {
+	echo -e " e88~-_  888~-_     ,88~-_   ,d88~~\      e    e      888 888~-_   888\nd888   \ 888   \   d888   \  8888        d8b  d8b     888 888   \  888\n8888     888    | 88888    | \`Y88b      d888bdY88b    888 888    | 888\n8888     888   /  88888    |  \`Y88b,   / Y88Y Y888b   888 888    | 888\nY888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888\n \"88_-~  888 ~-_    \`88_-~   \__88P' /          Y888b 888 888_-~   888\n"
+	echo "                                                                    or"
+	echo "                                   ChromeOS Multi-Image Deployment Hub"
+	echo "                                                                 v0.6a"
+	echo " "
+}
+
+splash
 echo "THIS IS A PROTOTYPE BUILD, DO NOT EXPECT EVERYTHING TO WORK PROPERLY!!!"
 
 mkdir /mnt/crosmidi
@@ -14,7 +30,6 @@ mkdir /mnt/new_root
 mkdir /mnt/shimroot
 
 shimboot() {
-	
 	crosmidi_images="$(cgpt find -l CROSMIDI_IMAGES | head -n 1 | grep --color=never /dev/)"
 	mount $crosmidi_images /mnt/crosmidi
 	find /mnt/crosmidi/ -type f -name "*.shim"
@@ -42,7 +57,7 @@ shimboot() {
 			mount $shimmerroot /mnt/new_root/mnt/
 			cp -r /mnt/new_root/mnt/root/* /mnt/new_root
 			umount /mnt/new_root/mnt/
-			mount $shimmerroot /mnt/new_root/stateful_partition
+			mount $shimmerroot /mnt/new_root/mnt/stateful_partition
 			umount $shimroot
 			echo "Booting shim in..."
 			echo "3..."
@@ -56,11 +71,15 @@ shimboot() {
 			mount --rbind /sys /mnt/new_root/sys/
 			mount --rbind /dev /mnt/new_root/dev/
 			mount --rbind /run /mnt/new_root/run/
-			chroot /mnt/new_root /usr/sbin/factory_install.sh
+			echo "running switchroot in 3 seconds"
+			sleep 3
+			exec /usr/bin/switchroot
+			# /usr/sbin/factory_install.sh
 		fi
 	done
 	read -p "Press any key to continue"
-	
+	losetup -D
+	splash
 }
 
 installcros() {
