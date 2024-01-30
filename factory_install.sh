@@ -40,8 +40,9 @@ shimboot() {
 			cp -r /mnt/shimroot/* /mnt/new_root
 			echo "Performing additional tasks..."
 			mount $shimmerroot /mnt/new_root/mnt/
-			cp -r /mnt/new_root/mnt/root/* /mnt/new_root/
-			umount $shimmerroot
+			cp -r /mnt/new_root/mnt/root/* /mnt/new_root
+			umount /mnt/new_root/mnt/
+			mount $shimmerroot /mnt/new_root/stateful_partition
 			umount $shimroot
 			echo "Booting shim in..."
 			echo "3..."
