@@ -71,12 +71,11 @@ shimboot() {
 			mount --rbind /sys /mnt/new_root/sys/
 			mount --rbind /dev /mnt/new_root/dev/
 			mount --rbind /run /mnt/new_root/run/
-			echo "running switchroot in 3 seconds"
-			sleep 3
-			bash #temporary failsafe
-			exec switch_root /mnt/new_root /sbin/init
-			# exec /usr/bin/switchroot
-			# /usr/sbin/factory_install.sh
+			# echo "running switchroot in 3 seconds"
+			# sleep 3
+			# bash #temporary failsafe
+			# exec switch_root /mnt/new_root /sbin/init - this does not work at the moment
+   			chroot /mnt/new_root /usr/sbin/factory_install.sh
 		fi
 	done
 	read -p "Press any key to continue"
