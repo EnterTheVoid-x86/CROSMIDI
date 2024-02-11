@@ -153,15 +153,16 @@ init_crosmidi() {
 	local ret=0
 	if [ -d "${src_path}" ]; then
 		echo "Copying CROSMIDI files..."
-		cp -r /crosmidi-root/root/* $new_root/
+		echo "fuck you"
+		echo "$(cp -r /crosmidi-root/root/* $new_root/)"
 		echo "Done."
 	else
 		echo "${src_path} does not exist. Failing."
 		ret=1
 	fi
 	echo "Ensuring that important files are created..."
-	cp /crosmidi-root/root/usr/sbin/factory_install.sh $new_root/usr/sbin/factory_install.sh
-	cp /crosmidi-root/root/sbin/init $new_root/sbin/init
+	echo "$(cp /crosmidi-root/root/usr/sbin/factory_install.sh $new_root/usr/sbin/factory_install.sh)"
+	echo "$(cp /crosmidi-root/root/sbin/init $new_root/sbin/init)"
 	echo "Finalizing boot..."
 	printf "\033[0m\n"
 	return "${ret}"
