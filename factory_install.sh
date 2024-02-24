@@ -121,4 +121,3 @@ while true; do
 	echo ""
 done
 
-# my code sucks :3
