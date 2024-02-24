@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# thanks to r58 for figuring out how the fuck to do this properly
+
 clear
 
 trap '' INT
@@ -14,7 +16,10 @@ DEBUG_TTY="/dev/pts/1"
 exec >>"${MAIN_TTY}" 2>&1
 exec <"${MAIN_TTY}"
 
+# all remaining code below is 100% original
+
 splash() {
+	# why did i put the logo all in one line?
 	echo -e " e88~-_  888~-_     ,88~-_   ,d88~~\      e    e      888 888~-_   888\nd888   \ 888   \   d888   \  8888        d8b  d8b     888 888   \  888\n8888     888    | 88888    | \`Y88b      d888bdY88b    888 888    | 888\n8888     888   /  88888    |  \`Y88b,   / Y88Y Y888b   888 888    | 888\nY888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888\n \"88_-~  888 ~-_    \`88_-~   \__88P' /          Y888b 888 888_-~   888\n"
 	echo "                                                                    or"
 	echo "                                   ChromeOS Multi-Image Deployment Hub"
@@ -49,7 +54,7 @@ shimboot() {
 			echo "Mounting shim..."
 			losetup -P -f --show /mnt/crosmidi/$shimtoboot
 			shimroot="$(cgpt find -l ROOT-A /dev/loop0 | head -n 1 | grep --color=never /dev/)"
-			shimmerroot="$(cgpt find -l SH1MMER /dev/loop0 | head -n 1 | grep --color=never /dev/)" # will only work if it's a SH1MMERED rma shim
+			shimmerroot="$(cgpt find -l SH1MMER /dev/loop0 | head -n 1 | grep --color=never /dev/)" # will only work if it's a SH1MMERED rma shim (this is so fucking stupid)
 			mount $shimroot /mnt/shimroot
 			echo "Copying files to tmpfs..."
 			cp -r /mnt/shimroot/* /mnt/new_root
@@ -115,3 +120,5 @@ while true; do
 	esac
 	echo ""
 done
+
+# my code sucks :3
