@@ -126,3 +126,4 @@ done
 # i digress
 # anything yall write is better than my code - boeing 
 # Don't let yourself convince yourself that you suck at stuff, you wrote this, its not your fault the sh1mmer devs changed the partition names -TechFrog
+# It's not related to mw's doing, but rather instead of trying to look at what partitions a shim needs it just assumes that partition exists and does nothing if it doesn't.
