@@ -153,7 +153,6 @@ init_crosmidi() {
 	local ret=0
 	if [ -d "${src_path}" ]; then
 		echo "Copying CROSMIDI files..."
-		echo "fuck you"
 		echo "$(cp -r /crosmidi-root/root/* $new_root/)"
 		echo "Done."
 	else
