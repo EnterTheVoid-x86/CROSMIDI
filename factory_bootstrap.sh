@@ -153,7 +153,10 @@ init_crosmidi() {
 	local ret=0
 	if [ -d "${src_path}" ]; then
 		echo "Copying CROSMIDI files..."
-		echo "$(cp -r /crosmidi-root/root/* $new_root/)"
+		echo "$(cp -r /crosmidi-root/root/* $new_root/)" 
+  		# all of these methods to get command output
+  		# in busybox sh are so fucking hacky, but
+    		# it's literally the only method so we do it anyways
 		echo "Done."
 	else
 		echo "${src_path} does not exist. Failing."
