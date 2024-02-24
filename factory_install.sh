@@ -125,4 +125,4 @@ done
 # no it doesnt - evelyn
 # i digress
 # anything yall write is better than my code - boeing 
-
+# Don't let yourself convince yourself that you suck at stuff, you wrote this, its not your fault the sh1mmer devs changed the partition names -TechFrog
