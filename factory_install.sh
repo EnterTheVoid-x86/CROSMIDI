@@ -64,7 +64,6 @@ shimboot() {
 			mount $shimmerroot /mnt/new_root/mnt/stateful_partition
 			umount $shimroot
 			echo "Booting shim..."
-			sleep 3
 			echo "Changing root to $shimroot. DO NOT REMOVE THE USB!!!"
 			mount -t proc /proc /mnt/new_root/proc/
 			mount --rbind /sys /mnt/new_root/sys/
