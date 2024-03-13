@@ -9,6 +9,8 @@ Y888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888
 
 # ChromeOS Multi-Image Deployment Interface
 
+Note: bc of olyb's funny legacy shim changes, those probably won't work with crosmidi as of yet. this hasn't been tested, but its probably true
+
 ## What is it?
 ChromeOS Multi-Image Deployment Interface is a Ventoy-type program that allows you to boot multiple RMA shims with only one USB. 
 
