@@ -37,8 +37,7 @@ mkdir /mnt/shimroot
 shimboot() {
 	crosmidi_images="$(cgpt find -l CROSMIDI_IMAGES | head -n 1 | grep --color=never /dev/)"
 	mount $crosmidi_images /mnt/crosmidi
-	find /mnt/crosmidi/ -type f -name "*.shim"
-	echo "These are the shims we found."
+	find /mnt/crosmidi/shims -type f
 	while true; do
 		read -p "Please choose a shim to boot: " shimtoboot
 		
@@ -64,13 +63,8 @@ shimboot() {
 			umount /mnt/new_root/mnt/
 			mount $shimmerroot /mnt/new_root/mnt/stateful_partition
 			umount $shimroot
-			echo "Booting shim in..."
-			echo "3..."
-			sleep 1
-			echo "2..."
-			sleep 1
-			echo "1..."
-			sleep 1
+			echo "Booting shim..."
+			sleep 3
 			echo "Changing root to $shimroot. DO NOT REMOVE THE USB!!!"
 			mount -t proc /proc /mnt/new_root/proc/
 			mount --rbind /sys /mnt/new_root/sys/
