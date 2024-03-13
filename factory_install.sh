@@ -98,7 +98,7 @@ installcros() {
 		then
 			echo "File not found! Try again."
 		else
-  			echo "I said type exit"
+  			echo "I said type exit..."
      			break
 		fi
 }
