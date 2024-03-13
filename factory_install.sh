@@ -93,6 +93,14 @@ installcros() {
 		then
 			break
 		fi
+  
+  		if [ ! -f /mnt/crosmidi/recovery/$reco ]
+		then
+			echo "File not found! Try again."
+		else
+  			echo "I said type exit"
+     			break
+		fi
 }
 
 rebootdevice() {
