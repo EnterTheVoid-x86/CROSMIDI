@@ -46,12 +46,12 @@ shimboot() {
 			break
 		fi
 		
-		if [ ! -f /mnt/crosmidi/$shimtoboot ]
+		if [ ! -f /mnt/crosmidi/shims/$shimtoboot ]
 		then
 			echo "File not found! Try again."
 		else
 			echo "Mounting shim..."
-			losetup -P -f --show /mnt/crosmidi/$shimtoboot
+			losetup -P -f --show /mnt/crosmidi/shims/$shimtoboot
 			shimroot="$(cgpt find -l ROOT-A /dev/loop0 | head -n 1 | grep --color=never /dev/)"
 			shimmerroot="$(cgpt find -l SH1MMER /dev/loop0 | head -n 1 | grep --color=never /dev/)" # will only work if it's a SH1MMERED rma shim (this is so fucking stupid)
 			mount $shimroot /mnt/shimroot
