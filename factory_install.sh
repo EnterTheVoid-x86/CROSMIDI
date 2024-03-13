@@ -86,10 +86,10 @@ installcros() {
 	mount $crosmidi_images /mnt/crosmidi
 	find /mnt/crosmidi/recovery -type f
 	while true; do
- 		echo "NOT IMPLIMENTED, Images will not flash, type 'exit' to return to the crosmidi menu."
-		read -p "Please choose an image to recover with: " shimtoboot
+ 		echo "NOT IMPLEMENTED, images will not flash, type 'exit' to return to the crosmidi menu."
+		read -p "Please choose an image to recover with: " reco
 		
-		if [[ $shimtoboot == "exit" ]]
+		if [[ $reco == "exit" ]]
 		then
 			break
 		fi
