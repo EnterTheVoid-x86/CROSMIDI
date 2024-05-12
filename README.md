@@ -28,3 +28,4 @@ Archimax/EnterTheVoid-x86: Pioneering the creation of this tool (programming, na
 Zeglol1234: Helping with stuff related to switch_root  
 r58playz' TerraOS: Helped me figure out some stuff with running a bash script as PID 1  
 TheTechFrog: Coming up with the idea, programming, mental support
+Crossystem: ???
