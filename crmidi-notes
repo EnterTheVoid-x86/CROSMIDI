@@ -1,0 +1,5 @@
+list partitions (figure out label system)
+mount user selected root-a
+chroot /path/to/root/mount chromeos-install /dev/(figure out how to get internal devices name here)
+
+
