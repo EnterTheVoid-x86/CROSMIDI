@@ -50,30 +50,7 @@ shimboot() {
 		then
 			echo "File not found! Try again."
 		else
-			echo "Mounting shim..."
-			losetup -P -f --show /mnt/crosmidi/shims/$shimtoboot
-			shimroot="$(cgpt find -l ROOT-A /dev/loop0 | head -n 1 | grep --color=never /dev/)"
-			shimmerroot="$(cgpt find -l SH1MMER /dev/loop0 | head -n 1 | grep --color=never /dev/)" # will only work if it's a SH1MMERED rma shim (this is so fucking stupid)
-			mount $shimroot /mnt/shimroot
-			echo "Copying files to tmpfs..."
-			cp -r /mnt/shimroot/* /mnt/new_root
-			echo "Performing additional tasks..."
-			mount $shimmerroot /mnt/new_root/mnt/
-			cp -r /mnt/new_root/mnt/root/* /mnt/new_root
-			umount /mnt/new_root/mnt/
-			mount $shimmerroot /mnt/new_root/mnt/stateful_partition
-			umount $shimroot
-			echo "Booting shim..."
-			echo "Changing root to $shimroot. DO NOT REMOVE THE USB!!!"
-			mount -t proc /proc /mnt/new_root/proc/
-			mount --rbind /sys /mnt/new_root/sys/
-			mount --rbind /dev /mnt/new_root/dev/
-			mount --rbind /run /mnt/new_root/run/
-			# echo "running switchroot in 3 seconds"
-			# sleep 3
-			# bash #temporary failsafe
-			# exec switch_root /mnt/new_root /sbin/init - this does not work at the moment
-   			chroot /mnt/new_root /usr/sbin/factory_install.sh
+			echo "I'll figure this shit out later lmao."
 		fi
 	done
 	read -p "Press any key to continue"
