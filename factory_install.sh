@@ -3,7 +3,7 @@
 clear
 
 releaseBuild=0
-
+				   # the text below this is false
 if [[ $releaseBuild -eq 1 ]]; then # i am stupid and incompitent :3 
 	trap '' INT
 fi
@@ -15,7 +15,7 @@ funText() {
    	echo "                                                                      $selectedSplashText"
 }
 
-# thx to stella for cool splash text and removing r58's code (force push did a little removing commit history lol)
+# thx to stella and boeing for cool splash text and removing r58's code (force push did a little removing commit history lol)
 
 splash() {
 	# why did i put the logo all in one line?
