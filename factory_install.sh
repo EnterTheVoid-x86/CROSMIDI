@@ -15,7 +15,7 @@ funText() {
    	echo "                                                                      $selectedSplashText"
 }
 
-# all remaining code below is 100% original...
+# thx to stella for cool splash text and removing r58's code (force push did a little removing commit history lol)
 
 splash() {
 	# why did i put the logo all in one line?
