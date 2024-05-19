@@ -85,7 +85,7 @@ findinternal() {
 	# you also cant have a device with the letter p in it (like /dev/sdp (mmcblk0p1 is fine bc the p is part of the partiton shit)) or it will break :3
 	# totally wasnt getting impatient with chat gpt and just decided to remove any and all p's
 	echo "findint"
-	devs=$(lsblk -dn -o NAME | grep -E 'sd|hd|vd|nvme|mmcblk')
+	devs=$(lsblk -dn -o NAME | grep -E 'sd|nvme|mmcblk')
 	crosfound=0
 	crmidifound=0
 
