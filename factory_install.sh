@@ -9,7 +9,7 @@ if [[ $releaseBuild -eq 1 ]]; then # i am stupid and incompitent :3
 fi
 
 funText() {
-	splashText=("Now in active development... again!" "Fun fact: I have no idea what the fuck I'm doing - Archimax" "Did you know that originally this whole script was skidded? It still is!" "I eated CROSMIDI" "Nom nom tasty shims" "How the fuck is this working? No clue!" "Shimmy shimmy yay shimmy yay shimmy yah")
+	splashText=("Now in active development... again!" "Fun fact: I have no idea what the fuck I'm doing - Archimax" "Did you know that originally this whole script was skidded? It still is!" "I eated CROSMIDI" "Nom nom tasty shims" "How the fuck is this working? No clue!" "Shimmy shimmy yay shimmy yay shimmy yah" "I hate arm boards I hate arm boards I hate arm boards" "someone get writable to deliver his expertiese in this situation" "whelement unenrollment eta 1-920,613,220 years")
  	# will add more text later
   	selectedSplashText=${splashText[$RANDOM % ${#splashText[@]}]} # def didn't get this from chatgpt
    	echo "                                                                      $selectedSplashText"
