@@ -24,6 +24,15 @@ Using a modified RMA Shim, you'll be presented with a menu to choose your action
 ## Supported devices?
 Anything with a publicly available RMA shim.
 
+## Building 
+Linux (wsl might work but no promises): clone this repo and cd into it, copy your sh1mmer legacy image into the folder, then run `crosmidi_builder.sh [image.bin]`. 
+Flash the image to a usb with DD or whatever you want, unmount partiiton 5 if it mounted, then run (please someone find a better way to do this, this is just simple so im using it for now) 
+`sudo growpart /dev/[device] 5
+sudo e2fsck -f /dev/[device]5
+sudo resize2fs /dev/[device]5`
+(yes there's supposed to be a space between the device and 5 on the first command.)
+mount the 5th partition and put your shims and recovery images in the respective folders, then boot the usb like you would sh1mmer.
+
 ## Credits
 Archimax/EnterTheVoid-x86: Pioneering the creation of this tool (programming, naming, etc)  
 Zeglol1234: Helping with stuff related to switch_root  
