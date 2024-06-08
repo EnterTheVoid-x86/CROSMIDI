@@ -66,7 +66,6 @@ shimboot() {
 
 installcros() {
 	usbdev="$(cgpt find -l SH1MMER | head -n 1 | grep --color=never /dev/)"
-	findinternal
 	echo "choose the image you want to flash:"
 	select FILE in "${recochoose[@]}"; do
  		if [[ -n "$FILE" ]]; then
@@ -89,40 +88,6 @@ installcros() {
 	mount --rbind /dev $recoroot/dev/
 
 	/mnt/recoroot/usr/sbin/chromeos-recovery $looop
-}
-
-findinternal() {
-	# assumes the user doesnt have a cros reco image pluged into device (that isnt on the shim) or this will prob break lol
-	devs=$(lsblk -dn -o NAME | grep -E 'sd|nvme|mmcblk') #...
-	crosfound=0
-	crmidifound=0
-
-	for dev in $devs; do
-    	prt=$(blkid | grep "ROOT-A" | awk -F ':' '{print $1}' | sed 's/[0-9]*$//' | sed 's/p//g')
-    	crosmidi_prt=$(blkid | grep "SH1MMER" | awk -F ':' '{print $1}' | sed 's/[0-9]*$//' | sed 's/p//g')
-		# SH1MMER as placeholder bc that's how im testing the script
-
-		if [[ -n "$crosmidi_prt" && "$crosmidi_prt" == "/dev/$dev" && "$crmidifound" -eq 1 ]]; then 
-			echo "CROSMIDI found twice... what????"
-		fi
-
-		if [[ -n "$crosmidi_prt" && "$crosmidi_prt" == "/dev/$dev" ]]; then
-			echo "USB found $dev $crosmidi_prt"
-			crmidifound=1
-			continue
-		fi
-		
-		if [[ -n "$prt" && "$prt" =~ "/dev/$dev" &&  "$crosfound" -eq 1 ]]; then 
-			echo "cros found twice. do you have a recovery image plugged in other than the one(s) on this usb? it should be fine if not"
-		fi
-
-    	if [[ -n "$prt" && "$prt" =~ "/dev/$dev" ]]; then
-			echo "CROS found"
-			echo "$dev $prt"
-			crosfound=1
-			internalstorage="/dev/$dev"
-    	fi
-	done
 }
 
 rebootdevice() {
