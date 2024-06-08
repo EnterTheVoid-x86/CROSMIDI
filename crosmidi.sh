@@ -74,8 +74,6 @@ installcros() {
 			break
 		fi
 	done
-
-	echo "untested."
 		
 	if [[ $reco == "exit" ]]; then
 		break
@@ -90,7 +88,7 @@ installcros() {
 	mount --rbind /sys $recoroot/sys/
 	mount --rbind /dev $recoroot/dev/
 
-	chroot $recoroot /usr/sbin/chromeos-install --dst $internalstorage
+	/mnt/recoroot/usr/sbin/chromeos-recovery $looop
 }
 
 findinternal() {
