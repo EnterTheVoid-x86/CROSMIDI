@@ -4,7 +4,7 @@ clear
 
 releaseBuild=0
 recoroot="/mnt/recoroot"
-				   # the text below this is false
+
 if [[ $releaseBuild -eq 1 ]]; then # i am stupid and incompitent :3 
 	trap '' INT
 fi
@@ -65,7 +65,6 @@ shimboot() {
 }
 
 installcros() {
-	usbdev="$(cgpt find -l SH1MMER | head -n 1 | grep --color=never /dev/)"
 	echo "choose the image you want to flash:"
 	select FILE in "${recochoose[@]}"; do
  		if [[ -n "$FILE" ]]; then
