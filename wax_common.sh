@@ -53,17 +53,6 @@ suppress_out() {
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=${SCRIPT_DIR:-"."}
 
-load_shflags() {
-	if [ -f "${SCRIPT_DIR}/lib/shflags" ]; then
-		. "${SCRIPT_DIR}/lib/shflags"
-	elif [ -f "${SCRIPT_DIR}/shflags" ]; then
-		. "${SCRIPT_DIR}/shflags"
-	else
-		echo "ERROR: Cannot find the required shflags library."
-		return 1
-	fi
-}
-
 is_ext2() {
 	local rootfs="$1"
 	local offset="${2-0}"
@@ -151,12 +140,12 @@ if command -v sfdisk &>/dev/null && check_semver_ge "$(sfdisk --version | awk '{
 	SFDISK=sfdisk
 else
 	log_debug "using bundled sfdisk"
-	SFDISK="${SCRIPT_DIR}/lib/bin/$ARCHITECTURE/sfdisk"
+	SFDISK="${SCRIPT_DIR}/lib/$ARCHITECTURE/sfdisk"
 	chmod +x "$SFDISK"
 fi
 
 # no way to check cgpt version, so we always use the bundled build
-CGPT="${SCRIPT_DIR}/lib/bin/$ARCHITECTURE/cgpt"
+CGPT="${SCRIPT_DIR}/lib/$ARCHITECTURE/cgpt"
 chmod +x "$CGPT"
 
 format_bytes() {
