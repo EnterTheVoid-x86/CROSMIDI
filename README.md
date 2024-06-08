@@ -10,15 +10,15 @@ Y888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888
 # ChromeOS Multi-Image Deployment Interface
 
 ## What is it?
-~~Incredibly broken.~~\
+~~Incredibly skidded.~~\
 ChromeOS Multi-Image Deployment Interface is a Ventoy-type program that allows you to boot multiple RMA shims with only one USB. 
 
 ## What can it do?
-~~Absolutely nothing in it's current state!~~\
+~~recovery!~~\
 Many things. Booting other modified RMA shims like TerraOS and SH1MMER (or stock shims), installing different ChromeOS recovery images without the need to reformat your USB every time, among other things.
 
 ## How does it work?
-~~It doesn't.~~\
+~~It does :3.~~\
 Using a modified RMA Shim, you'll be presented with a menu to choose your action. Available options are `b` (bash shell), `r` (reboot), `p` (poweroff), `i` (install a recovery image), and `s` (boot an RMA shim). Installing a recovery image mounts the disk image with losetup, partitions the internal storage, and flashes the partitions to the disk.
 
 ## Supported devices?
@@ -28,5 +28,5 @@ Anything with a publicly available RMA shim.
 Archimax/EnterTheVoid-x86: Pioneering the creation of this tool (programming, naming, etc)  
 Zeglol1234: Helping with stuff related to switch_root  
 r58playz' TerraOS: Helped me figure out some stuff with running a bash script as PID 1  
-TheTechFrog: Coming up with the idea, programming, mental support\
+TheTechFrog: Coming up with the idea, programming recovery and the builder (kinda olyb did most of it already lol), mental support\
 OlyB: making wax and doing all the hard work for the builder for us
