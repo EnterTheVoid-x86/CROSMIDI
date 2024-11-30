@@ -7,6 +7,15 @@ Y888   / 888_-~    Y888   /     8888  /   YY   Y888b  888 888   /  888
  "88_-~  888 ~-_    `88_-~   \__88P' /          Y888b 888 888_-~   888
 ```
 
+# CROSMIDI: The UNFINISHED Source Code
+I've left Whelement and had desired to for a long while. CROSMIDI will never be finished as I don't have the time, nor motivation to work on it.
+Therefore I'll make it's source public. Maybe the community can start work on it in this state right where I left off, who knows.
+
+Enjoy this skidded hellhole of a project.
+- Archimax
+
+Original README below!
+
 # ChromeOS Multi-Image Deployment Interface
 
 ## What is it?
