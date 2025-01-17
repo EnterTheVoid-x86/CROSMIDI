@@ -1,3 +1,6 @@
+> [!NOTE]  
+> CROSMIDI has been rebranded and rewritten under [Priism](https://github.com/EnterTheVoid-x86/Priism)
+
 ```
  e88~-_  888~-_     ,88~-_   ,d88~~\      e    e      888 888~-_   888
 d888   \ 888   \   d888   \  8888        d8b  d8b     888 888   \  888
