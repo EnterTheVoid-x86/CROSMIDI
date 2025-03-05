@@ -1,5 +1,5 @@
 > [!NOTE]  
-> CROSMIDI has been rebranded and rewritten under [Priism](https://github.com/EnterTheVoid-x86/Priism)
+> CROSMIDI has been rebranded and rewritten under [Priism](https://github.com/Ethereal-Workshop/Priism)
 
 ```
  e88~-_  888~-_     ,88~-_   ,d88~~\      e    e      888 888~-_   888
